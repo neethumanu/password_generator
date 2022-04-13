@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact {% endblock title %}
+{% block body %}
+
+<img src='/static/download1.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+<div class="container form-group " align="center">
+<h2 align="center" style="color: goldenrod;">Generate Password</h2>
+<form action="{% url 'generate' %}" method="post"  style="margin-bottom: 5%;">
+    {% csrf_token %}
+    <br>
+      <input type="number"   name="length" placeholder="Exp:-8"><a style="color: rgb(253,4,4);"><b>Length of Password</b></a><br>
+      <input type="checkbox" name="ucase" ><a style="color: rgb(253,4,4);"><b>Uppercase</b></a><br>
+      <input type="checkbox" name="num" ><a style="color: rgb(253,4,4);"><b>Numbers</b></a><br>
+      <input type="checkbox" name="schar" ><a style="color: rgb(253,4,4);"><b>Special charecters</b></a><br><br>
+      <button type="submit" class="btn btn-primary">Generate Password</button>
+   </div>
+  </form>
+
+  {% endblock body %}
